@@ -1,0 +1,35 @@
+import { Component, OnInit, OnDestroy, inject } from '@angular/core';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { Observable } from 'rxjs';
+import { Food } from '../../models/food.model';
+import { FoodService } from '../../services/food.service';
+
+@Component({
+  selector: 'app-flash-deals',
+  standalone: true,
+  imports: [CommonModule, NgOptimizedImage],
+  templateUrl: './flash-deals.component.html',
+  styleUrls: ['./flash-deals.component.css']
+})
+export class FlashDealsComponent implements OnInit, OnDestroy {
+  private foodService = inject(FoodService);
+  public deals$!: Observable<Food[]>;
+  
+  // تایمر حذف شد چون دیگر مفهومی ندارد
+  // private intervalId: any;
+  // public hours: string = '00';
+  // public minutes: string = '00';
+  // public seconds: string = '00';
+
+  ngOnInit(): void {
+    this.deals$ = this.foodService.getFeaturedFoods();
+  }
+
+  ngOnDestroy(): void {
+    // اگر در آینده منطقی به این بخش اضافه شد
+  }
+  
+  trackByFoodId(index: number, food: Food): number {
+    return food.id;
+  }
+}

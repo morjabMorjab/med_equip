@@ -1,0 +1,36 @@
+<header class="main-header">
+  <div class="header-content">
+    <!-- بخش چپ: لوگو و دسته‌بندی‌ها -->
+    <div class="header-left">
+      <div class="logo">
+        <img src="assets/icons/logo.svg" alt="Ashpaz Marketplace Logo">
+        <span class="logo-text">آشپزباشی</span>
+      </div>
+      <button class="categories-btn">
+        <img src="assets/icons/menu.svg" alt="Categories">
+        <span>دسته‌بندی‌ها</span>
+      </button>
+    </div>
+
+    <!-- بخش وسط: نوار جستجو -->
+    <div class="search-container">
+      <input type="text" placeholder="من دنبال غذای ... می‌گردم">
+      <button class="search-btn">
+        <img src="assets/icons/search.svg" alt="Search">
+      </button>
+    </div>
+
+    <!-- بخش راست: پروفایل، سبد خرید و ... -->
+    <div class="header-right">
+      <a href="#" class="header-action">
+        <img src="assets/icons/user.svg" alt="Profile">
+        <span>ورود / ثبت‌نام</span>
+      </a>
+      <a href="#" class="header-action cart-action">
+        <img src="assets/icons/cart.svg" alt="Cart">
+        <span>سبد خرید</span>
+        <span class="cart-badge">3</span>
+      </a>
+    </div>
+  </div>
+</header>

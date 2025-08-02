@@ -1,0 +1,30 @@
+<?php
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use App\Models\Chef;
+use App\Models\Food;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+
+class FoodSeeder extends Seeder
+{
+    public function run(): void
+    {
+        DB::table('foods')->delete();
+        DB::table('chefs')->delete();
+
+        $chefs = Chef::factory(10)->create();
+        $foods = ['قورمه سبزی', 'پیتزا پپرونی', 'لازانیا', 'چلوکباب کوبیده', 'سالاد سزار', 'باقالی پلو با ماهیچه', 'جوجه کباب', 'میرزاقاسمی', 'کشک بادمجان', 'پاستا آلفردو', 'همبرگر مخصوص', 'سوپ جو', 'آش رشته', 'کوفته تبریزی', 'دلمه برگ مو', 'استیک با سس قارچ', 'ماهی سوخاری', 'قیمه نثار', 'ته چین مرغ', 'فسنجان'];
+
+        foreach ($foods as $foodName) {
+            Food::factory()->create([
+                'chef_id' => $chefs->random()->id,
+                'name' => $foodName,
+                'image_url' => 'https://picsum.photos/seed/' . Str::slug($foodName) . '/600/400',
+                'rating' => fake()->randomFloat(1, 3.5, 5.0), // امتیاز تصادفی بین ۳.۵ تا ۵
+                'ratings_count' => fake()->numberBetween(10, 250), // تعداد رای تصادفی
+            ]);
+        }
+    }
+}

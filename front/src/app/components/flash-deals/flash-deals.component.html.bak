@@ -1,0 +1,39 @@
+<section class="flash-deals-container">
+  <div class="deals-header">
+    <div class="title-section">
+      <h2 class="title">فروش ویژه</h2>
+      <div class="countdown-timer">
+        <span>پایان در:</span>
+        <span class="timer-box">{{ seconds }}</span>:
+        <span class="timer-box">{{ minutes }}</span>:
+        <span class="timer-box">{{ hours }}</span>
+      </div>
+    </div>
+    <a href="#" class="view-all-btn">مشاهده همه</a>
+  </div>
+
+  <!-- نمایش حالت بارگذاری -->
+  <ng-container *ngIf="!(deals$ | async)">
+    <p class="loading-text">در حال بارگذاری پیشنهادها...</p>
+  </ng-container>
+
+  <!-- نمایش گرید محصولات -->
+  <div class="deals-grid" *ngIf="deals$ | async as deals">
+    <a href="#" class="deal-card" *ngFor="let deal of deals">
+      <div class="card-image">
+        <img [src]="deal.image_url" [alt]="deal.name">
+        <span class="discount-badge">{{ 10 + (deal.id % 15) }}% تخفیف</span>
+      </div>
+      <div class="card-content">
+        <div class="price-section">
+          <span class="discount-price">{{ deal.price * 0.85 | number }} تومان</span>
+          <span class="original-price">{{ deal.price | number }}</span>
+        </div>
+        <div class="progress-bar-container">
+          <div class="progress-bar" [style.width.%]="20 + (deal.id % 60)"></div>
+        </div>
+        <span class="sold-text">{{ 5 + (deal.id % 10) }} عدد فروش رفته</span>
+      </div>
+    </a>
+  </div>
+</section>

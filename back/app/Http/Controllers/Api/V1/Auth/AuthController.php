@@ -1,0 +1,1 @@
+<?php\n\nnamespace App\Http\Controllers\Api\V1\Auth;\n\nuse App\Http\Controllers\Controller;\nuse Illuminate\Http\Request;\n\nclass AuthController extends Controller\n{\n    public function register(Request $request) { /* ... */ }\n    public function login(Request $request) { /* ... */ }\n    public function logout(Request $request) { /* ... */ }\n}\n

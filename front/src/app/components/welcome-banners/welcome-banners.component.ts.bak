@@ -1,0 +1,21 @@
+import { Component, OnInit, inject } from '@angular/core';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { Observable } from 'rxjs';
+import { Banner } from '../../models/banner.model';
+import { BannerService } from '../../services/banner.service';
+
+@Component({
+  selector: 'app-welcome-banners',
+  standalone: true,
+  imports: [CommonModule, NgOptimizedImage],
+  templateUrl: './welcome-banners.component.html',
+  styleUrls: ['./welcome-banners.component.css']
+})
+export class WelcomeBannersComponent implements OnInit {
+  private bannerService = inject(BannerService);
+  public banners$!: Observable<Banner[]>;
+
+  ngOnInit(): void {
+    this.banners$ = this.bannerService.getHomepageBanners();
+  }
+}

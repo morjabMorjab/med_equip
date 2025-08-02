@@ -1,0 +1,21 @@
+<section class="banners-section" *ngIf="banners$ | async as banners">
+  <!-- استفاده از دایرکتیو appSwiper و پاس دادن تنظیمات -->
+  <div class="swiper-container" appSwiper [config]="swiperConfig">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" *ngFor="let banner of banners">
+        <a [href]="banner.link_url" class="slide-link">
+          <img [ngSrc]="banner.image_url" [alt]="banner.title" class="banner-bg" width="1200" height="400" priority>
+          <div class="banner-overlay"></div>
+          <div class="banner-content">
+            <h3 class="banner-title">{{ banner.title }}</h3>
+            <p class="banner-subtitle">{{ banner.subtitle }}</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <!-- عناصر پیمایش باید داخل کانتینر باشند -->
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+</section>

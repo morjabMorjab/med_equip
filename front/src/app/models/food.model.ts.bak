@@ -1,0 +1,16 @@
+// تعریف ساختار داده‌ها برای آشپز
+export interface Chef {
+  id: number;
+  name: string;
+  // سایر مشخصات آشپز در آینده اینجا اضافه می‌شود
+}
+
+// تعریف ساختار داده‌ها برای غذا
+export interface Food {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  image_url: string;
+  chef: Chef; // هر غذا یک آشپز دارد
+}

@@ -1,0 +1,9 @@
+<div class="section-container" dir="rtl">
+  <h2 class="section-title">خرید بر اساس دسته‌بندی</h2>
+  <div class="categories-grid" *ngIf="categories$ | async as categories">
+    <div class="category-card" *ngFor="let category of categories">
+      <img [src]="category.icon || 'https://via.placeholder.com/80'" alt="{{ category.name }}" class="category-icon">
+      <span class="category-name">{{ category.name }}</span>
+    </div>
+  </div>
+</div>

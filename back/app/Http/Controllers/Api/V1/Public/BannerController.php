@@ -1,0 +1,5 @@
+<?php
+namespace App\Http\Controllers\Api\V1\Public;
+use App\Http\Controllers\Controller;
+use App\Models\Banner;
+class BannerController extends Controller { public function homepageBanners() { return response()->json(Banner::where('is_active', true)->take(5)->get()); } }

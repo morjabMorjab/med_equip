@@ -1,0 +1,61 @@
+:host { display: block; }
+.banners-section {
+  max-width: 1400px;
+  margin: 1.5rem auto;
+}
+.banners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+.banner-card {
+  position: relative;
+  display: block;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  height: 300px;
+  color: white;
+  text-decoration: none;
+}
+.banner-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.banner-card:hover .banner-bg {
+  transform: scale(1.05);
+}
+.banner-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 50%);
+}
+.banner-content {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 1.5rem;
+  direction: rtl;
+}
+.banner-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.banner-subtitle {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+.banner-button {
+  background-color: var(--primary-color);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+.banner-card:hover .banner-button {
+  background-color: white;
+  color: var(--primary-color);
+}

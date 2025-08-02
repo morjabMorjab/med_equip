@@ -1,0 +1,15 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\V1\Public\FoodController;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| ما از این فایل برای تعریف روت API خود استفاده می‌کنیم تا مشکل 404 حل شود.
+|
+*/
+
+Route::get('/v1/foods/featured', [FoodController::class, 'featured']);

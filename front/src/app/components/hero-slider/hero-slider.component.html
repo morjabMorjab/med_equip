@@ -1,0 +1,14 @@
+<!-- این ساختار HTML کلاسیک و استاندارد Swiper.js است -->
+<div class="swiper hero-swiper">
+  <div class="swiper-wrapper">
+    <!-- اسلایدها در اینجا قرار می‌گیرند -->
+    <div class="swiper-slide" *ngFor="let slide of slides">
+      <img [src]="slide.img" alt="{{ slide.title }}" class="slide-image"/>
+    </div>
+  </div>
+  <!-- دکمه‌های ناوبری (اختیاری) -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+  <!-- نقطه‌های صفحه‌بندی (اختیاری) -->
+  <div class="swiper-pagination"></div>
+</div>

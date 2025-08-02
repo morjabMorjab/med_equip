@@ -1,0 +1,11 @@
+<section class="categories-section">
+  <div class="category-grid" *ngIf="categories$ | async as categories; else loading">
+    <a href="#" class="category-item" *ngFor="let category of categories">
+      <div class="icon-container" [innerHTML]="sanitizeSvg(category.icon_svg)"></div>
+      <span class="category-name">{{ category.name }}</span>
+    </a>
+  </div>
+  <ng-template #loading>
+    <p>در حال بارگذاری دسته‌بندی‌ها...</p>
+  </ng-template>
+</section>

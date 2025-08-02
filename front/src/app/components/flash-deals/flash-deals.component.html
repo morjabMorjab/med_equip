@@ -1,0 +1,31 @@
+<section class="flash-deals-container">
+  <div class="deals-header">
+    <div class="title-section">
+      <h2 class="title">تخفیف‌های داغ بازار</h2>
+      <div class="subtitle">فرصت‌ها را از دست ندهید</div>
+    </div>
+    <a href="#" class="view-all-btn">مشاهده همه</a>
+  </div>
+
+  <div class="deals-grid" *ngIf="deals$ | async as deals; else loading">
+    <a href="#" class="deal-card" *ngFor="let deal of deals; trackBy: trackByFoodId">
+      <div class="card-image">
+        <img [ngSrc]="deal.image_url" [alt]="deal.name" width="220" height="147" priority>
+      </div>
+      <div class="card-content">
+        <h3 class="food-title">{{ deal.name }}</h3>
+        <p class="chef-name">فروشنده: {{ deal.chef.name }}</p>
+        <div class="rating-section">
+          <span class="star">★</span>
+          <!-- استفاده از پایپ number برای نمایش صحیح امتیاز -->
+          <span class="rating-value">{{ deal.rating | number:'1.1-1' }}</span>
+          <span class="rating-count">({{ deal.ratings_count }} نظر)</span>
+        </div>
+        <button class="chat-btn">شروع چت و سفارش</button>
+      </div>
+    </a>
+  </div>
+  <ng-template #loading>
+    <p class="loading-text">در حال بارگذاری پیشنهادها...</p>
+  </ng-template>
+</section>

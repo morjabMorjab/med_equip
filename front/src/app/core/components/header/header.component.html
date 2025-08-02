@@ -1,0 +1,22 @@
+<header class="main-header">
+  <nav class="nav-container">
+    <a routerLink="/" class="logo">بازار آنلاین</a>
+    
+    <div class="search-bar">
+      <input type="text" placeholder="جستجوی محصولات...">
+      <button>جستجو</button>
+    </div>
+
+    <div class="nav-links">
+      <ng-container *ngIf="user$ | async as user; else guestView">
+        <span class="username">سلام، {{ user.name }}</span>
+        <a (click)="logout()" class="nav-link-btn logout-btn">خروج</a>
+      </ng-container>
+      <ng-template #guestView>
+        <a routerLink="/login" class="nav-link-btn">ورود</a>
+        <a routerLink="/register" class="nav-link-btn register-btn">ثبت‌نام</a>
+      </ng-template>
+      <a routerLink="/cart" class="cart-icon">🛒</a>
+    </div>
+  </nav>
+</header>

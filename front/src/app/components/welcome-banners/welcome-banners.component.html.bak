@@ -1,0 +1,13 @@
+<section class="banners-section" *ngIf="banners$ | async as banners">
+  <div class="banners-grid">
+    <a *ngFor="let banner of banners" [href]="banner.link_url" class="banner-card">
+      <img [ngSrc]="banner.image_url" [alt]="banner.title" class="banner-bg" width="600" height="600" priority>
+      <div class="banner-overlay"></div>
+      <div class="banner-content">
+        <h3 class="banner-title">{{ banner.title }}</h3>
+        <p class="banner-subtitle">{{ banner.subtitle }}</p>
+        <span class="banner-button">{{ banner.button_text }} →</span>
+      </div>
+    </a>
+  </div>
+</section>

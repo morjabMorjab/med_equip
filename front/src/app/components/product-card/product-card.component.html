@@ -1,0 +1,13 @@
+<!-- لینک به صفحه فروشنده تغییر می‌کند -->
+<a [routerLink]="['/sellers', product.user_id]" class="card-link">
+  <div class="card" *ngIf="product">
+    <img [src]="product.image_url || 'https://via.placeholder.com/300'" alt="{{ product.name }}" class="card-img">
+    <div class="card-body">
+      <h3 class="card-title">{{ product.name }}</h3>
+      <p class="card-price">{{ product.price | number }} تومان</p>
+      <p class="card-seller">فروشنده: {{ product.user?.name || 'نامشخص' }}</p>
+      <!-- متن دکمه تغییر می‌کند -->
+      <button class="card-btn">اطلاعات بیشتر</button>
+    </div>
+  </div>
+</a>
